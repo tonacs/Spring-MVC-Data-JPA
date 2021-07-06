@@ -17,9 +17,12 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.Data;
+
 
 @Entity
 @Table(name = "clientes")
+@Data
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -38,10 +41,12 @@ public class Cliente implements Serializable {
 	private String email;
 	
 	@NotNull
-	@Column(name = "CREATE_AT")
+	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createAt;
+	
+	private String foto;
 	
 	/*
 	@PrePersist
@@ -50,48 +55,5 @@ public class Cliente implements Serializable {
 	}
 	*/
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Date getCreateAt() {
-		return createAt;
-	}
-
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 }
